@@ -1,3 +1,5 @@
+using System.Text;
+
 class Post
 {
   public DateTime Date { get; set; }
@@ -22,10 +24,11 @@ class Post
 
   public override string ToString()
   {
-    var comments = "\n\t";
+    var comments = new StringBuilder();
+
     foreach(var comment in Comments)
     {
-      comments += $"{comment.Text}\n\t";
+      comments.AppendLine(comment.Text);
     }
 
     return $@"
